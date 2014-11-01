@@ -16,6 +16,7 @@ import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
@@ -157,30 +158,42 @@ public class Utilities {
 		});
 		dialog.show();
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public void adjustImageAspect(int bWidth, int bHeight, ImageView img) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        if (bWidth == 0 || bHeight == 0)
-            return;
-        int sHeight = 0;
-        Activity ac = (Activity) context;
-        if (android.os.Build.VERSION.SDK_INT >= 13) {
-            Display display = ac.getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            display.getSize(size);
-            sHeight = size.y;
-        } else {
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		if (bWidth == 0 || bHeight == 0)
+			return;
+		int sHeight = 0;
+		Activity ac = (Activity) context;
+		if (android.os.Build.VERSION.SDK_INT >= 13) {
 			Display display = ac.getWindowManager().getDefaultDisplay();
-            sHeight = display.getHeight();
-        }
-        int new_width = (int) Math.floor((double) bWidth * (double) sHeight
-                / (double) bHeight);
-        params.width = new_width;
-        params.height = sHeight;
-        Log.d("", "Fullscreen image new dimensions: w = " + new_width
-                + ", h = " + sHeight);
-        img.setLayoutParams(params);
-    }
+			Point size = new Point();
+			display.getSize(size);
+			sHeight = size.y;
+		} else {
+			Display display = ac.getWindowManager().getDefaultDisplay();
+			sHeight = display.getHeight();
+		}
+		int new_width = (int) Math.floor((double) bWidth * (double) sHeight
+				/ (double) bHeight);
+		params.width = new_width;
+		params.height = sHeight;
+		Log.d("", "Fullscreen image new dimensions: w = " + new_width
+				+ ", h = " + sHeight);
+		img.setLayoutParams(params);
+	}
+
+	/**
+	 * @return Checking Camera Availability
+	 */
+	public boolean isDeviceSupportCamera() {
+		if (context.getPackageManager().hasSystemFeature(
+				PackageManager.FEATURE_CAMERA)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
