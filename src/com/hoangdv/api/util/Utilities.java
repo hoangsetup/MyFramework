@@ -1,4 +1,4 @@
-package com.hoangdv.framework.util;
+package com.hoangdv.api.util;
 
 /*
  * FileName: Utilities.java 
@@ -28,7 +28,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.hoangdv.framework.R;
+import com.hoangdv.api.R;
 
 /**
  * @author Hoangdv
@@ -159,6 +159,11 @@ public class Utilities {
 		dialog.show();
 	}
 
+	/**
+	 * @param bWidth
+	 * @param bHeight
+	 * @param img
+	 */
 	@SuppressWarnings("deprecation")
 	public void adjustImageAspect(int bWidth, int bHeight, ImageView img) {
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
