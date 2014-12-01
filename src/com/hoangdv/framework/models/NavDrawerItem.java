@@ -1,7 +1,8 @@
-package com.hoangdv.api.model;
+package com.hoangdv.framework.models;
 
 public class NavDrawerItem {
 
+	private int id;
 	private String title;
 	private int icon;
 	private String count = "0";
@@ -54,5 +55,13 @@ public class NavDrawerItem {
 
 	public void setCounterVisibility(boolean isCounterVisible) {
 		this.isCounterVisible = isCounterVisible;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

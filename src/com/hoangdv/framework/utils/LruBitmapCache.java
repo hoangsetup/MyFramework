@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.hoangdv.api.util;
+package com.hoangdv.framework.utils;
 
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;

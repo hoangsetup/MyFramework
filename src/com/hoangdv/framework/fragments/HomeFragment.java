@@ -1,4 +1,4 @@
-package com.hoangdv.api.fragment;
+package com.hoangdv.framework.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hoangdv.api.R;
+import com.hoangdv.framework.R;
 
 public class HomeFragment extends Fragment {
 	

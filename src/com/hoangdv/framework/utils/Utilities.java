@@ -1,4 +1,4 @@
-package com.hoangdv.api.util;
+package com.hoangdv.framework.utils;
 
 /*
  * FileName: Utilities.java 
@@ -28,7 +28,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.hoangdv.api.R;
+import com.hoangdv.framework.R;
 
 /**
  * @author Hoangdv

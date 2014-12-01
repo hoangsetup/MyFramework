@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.hoangdv.api.app;
+package com.hoangdv.framework.app;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -10,7 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.hoangdv.api.util.LruBitmapCache;
+import com.hoangdv.framework.utils.LruBitmapCache;
 
 public class AppController extends Application {
 	public static final String TAG = AppController.class.getSimpleName();

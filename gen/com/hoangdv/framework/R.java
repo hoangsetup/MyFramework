@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.hoangdv.api;
+package com.hoangdv.framework;
 
 public final class R {
     public static final class attr {
@@ -46,21 +46,15 @@ public final class R {
         public static final int user=0x7f02000d;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int button_login=0x7f090004;
-        public static final int checkBox_keeplogin=0x7f090003;
-        public static final int counter=0x7f09000c;
-        public static final int drawer_layout=0x7f090005;
-        public static final int editText_password=0x7f090002;
-        public static final int editText_user=0x7f090001;
-        public static final int frame_container=0x7f090006;
-        public static final int icon=0x7f09000a;
-        public static final int imageView1=0x7f090009;
-        public static final int list_slidermenu=0x7f090007;
-        public static final int list_slidermenu1=0x7f090008;
-        public static final int textView1=0x7f090000;
-        public static final int title=0x7f09000b;
-        public static final int txtLabel=0x7f09000d;
+        public static final int action_settings=0x7f090008;
+        public static final int counter=0x7f090006;
+        public static final int drawer_layout=0x7f090000;
+        public static final int frame_container=0x7f090001;
+        public static final int icon=0x7f090004;
+        public static final int imageView1=0x7f090003;
+        public static final int list_slidermenu=0x7f090002;
+        public static final int title=0x7f090005;
+        public static final int txtLabel=0x7f090007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

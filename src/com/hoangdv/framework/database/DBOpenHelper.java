@@ -1,4 +1,4 @@
-package com.hoangdv.api.SqliteHelper;
+package com.hoangdv.framework.database;
 
 import android.content.Context;
 import android.database.Cursor;

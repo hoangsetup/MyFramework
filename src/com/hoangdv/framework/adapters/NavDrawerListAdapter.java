@@ -1,6 +1,6 @@
-package com.hoangdv.api.adapter;
+package com.hoangdv.framework.adapters;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,16 +12,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hoangdv.api.R;
-import com.hoangdv.api.model.NavDrawerItem;
+import com.hoangdv.framework.R;
+import com.hoangdv.framework.models.NavDrawerItem;
 
 public class NavDrawerListAdapter extends BaseAdapter {
 
 	private Context context;
-	private ArrayList<NavDrawerItem> navDrawerItems;
+	private Vector<NavDrawerItem> navDrawerItems = new Vector<NavDrawerItem>();
 
 	public NavDrawerListAdapter(Context context,
-			ArrayList<NavDrawerItem> navDrawerItems) {
+			Vector<NavDrawerItem> navDrawerItems) {
 		this.context = context;
 		this.navDrawerItems = navDrawerItems;
 	}

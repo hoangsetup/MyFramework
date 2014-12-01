@@ -1,6 +1,6 @@
-package com.hoangdv.api;
+package com.hoangdv.framework;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -16,10 +16,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.hoangdv.api.adapter.NavDrawerListAdapter;
-import com.hoangdv.api.fragment.HomeFragment;
-import com.hoangdv.api.model.MyVar;
-import com.hoangdv.api.model.NavDrawerItem;
+import com.hoangdv.framework.adapters.NavDrawerListAdapter;
+import com.hoangdv.framework.fragments.HomeFragment;
+import com.hoangdv.framework.models.NavDrawerItem;
 
 @SuppressWarnings("deprecation")
 public class SlideActivity extends Activity {
@@ -34,8 +33,8 @@ public class SlideActivity extends Activity {
 	private CharSequence mTitle;
 
 	// slide menu items
-	private String[] navMenuTitles;
-	public static ArrayList<NavDrawerItem> navDrawerItems;
+	// private String[] navMenuTitles;
+	public static Vector<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 
 	@Override
@@ -46,32 +45,29 @@ public class SlideActivity extends Activity {
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
-		//navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+		// navMenuTitles =
+		// getResources().getStringArray(R.array.nav_drawer_items);
 
 		// nav drawer icons from resources
-		//navMenuIcons = getResources()
-		//		.obtainTypedArray(R.array.nav_drawer_icons);
-		
-		
+		// navMenuIcons = getResources()
+		// .obtainTypedArray(R.array.nav_drawer_icons);
+
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
-		navDrawerItems = new ArrayList<NavDrawerItem>();
+		navDrawerItems = new Vector<NavDrawerItem>();
 
 		// adding nav drawer items to array
 		// Home
-		navMenuTitles = new String[]{"Title 1","Title 2"};
-		//navDrawerItems.add(new NavDrawerItem("Title 1", R.drawable.ic_home));
+		// navMenuTitles = new String[] { "Title 1", "Title 2" };
+		navDrawerItems.add(new NavDrawerItem("Title 1", R.drawable.ic_home));
 		// Find People
-		//navDrawerItems.add(new NavDrawerItem("Title 2", R.drawable.ic_home, true, "22"));
+		navDrawerItems.add(new NavDrawerItem("Title 2", R.drawable.ic_home,
+				true, "22"));
 		// Photos
-		for(NavDrawerItem i : MyVar.navDrawerItems){
-			navDrawerItems.add(i);
-			
-		}
 
 		// Recycle the typed array
-		//navMenuIcons.recycle();
+		// navMenuIcons.recycle();
 
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
@@ -85,9 +81,11 @@ public class SlideActivity extends Activity {
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, //nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for accessibility
-				R.string.app_name // nav drawer close - description for accessibility
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
 		) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
@@ -165,19 +163,19 @@ public class SlideActivity extends Activity {
 			fragment = new HomeFragment();
 			break;
 		case 1:
-			//fragment = new FindPeopleFragment();
+			// fragment = new FindPeopleFragment();
 			break;
 		case 2:
-			//fragment = new PhotosFragment();
+			// fragment = new PhotosFragment();
 			break;
 		case 3:
-			//fragment = new CommunityFragment();
+			// fragment = new CommunityFragment();
 			break;
 		case 4:
-			//fragment = new PagesFragment();
+			// fragment = new PagesFragment();
 			break;
 		case 5:
-			//fragment = new WhatsHotFragment();
+			// fragment = new WhatsHotFragment();
 			break;
 
 		default:
@@ -192,7 +190,7 @@ public class SlideActivity extends Activity {
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
 			mDrawerList.setSelection(position);
-			setTitle(navMenuTitles[position]);
+			setTitle(navDrawerItems.get(position).getTitle());
 			mDrawerLayout.closeDrawer(mDrawerList);
 		} else {
 			// error in creating fragment

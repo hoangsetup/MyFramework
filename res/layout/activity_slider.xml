@@ -23,22 +23,4 @@
         android:dividerHeight="1dp"
         android:listSelector="@drawable/list_selector" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity=""
-        android:orientation="vertical" >
-
-        <ListView
-            android:id="@+id/list_slidermenu1"
-            android:layout_width="240dp"
-            android:layout_height="128dp"
-            android:layout_gravity="start"
-            android:background="@color/list_background"
-            android:choiceMode="singleChoice"
-            android:divider="@color/list_divider"
-            android:dividerHeight="1dp"
-            android:listSelector="@drawable/list_selector" />
-    </LinearLayout>
-
 </android.support.v4.widget.DrawerLayout>

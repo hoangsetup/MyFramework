@@ -1,26 +1,25 @@
-package com.hoangdv.api;
+package com.hoangdv.framework;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashScreen extends Activity {
-	public static int SPLASH_TIME_OUT = 300;
+public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_splash);
+		this.setContentView(R.layout.activity_main);
 		new Handler().postDelayed(new Runnable() {
 			
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+				Intent intent = new Intent(MainActivity.this, SlideActivity.class);
 				startActivity(intent);
 				finish();
 			}
-		}, SPLASH_TIME_OUT);
-	} 
+		}, 3000);
+	}
 }
