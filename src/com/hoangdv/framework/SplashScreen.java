@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class SplashScreen extends Activity {
-	public static int SPLASH_TIME_OUT = 300;
+	public static int SPLASH_TIME_OUT = 500;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
