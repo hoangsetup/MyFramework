@@ -7,6 +7,12 @@ package com.hoangdv.framework.utils;
  */
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Random;
 
 import android.app.ActionBar.LayoutParams;
@@ -18,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -41,14 +48,14 @@ public class Utilities {
 	}
 
 	/**
-	 * @param ctx
+	 * @param context
 	 */
-	public Utilities(Context ctx) {
-		context = ctx;
+	public Utilities(Context context) {
+		this.context = context;
 	}
 
 	/**
-	 * @return
+	 * @return Độ rộng màn hình
 	 */
 	@SuppressWarnings("deprecation")
 	public int getScreenWidth() {
@@ -69,7 +76,7 @@ public class Utilities {
 
 	/**
 	 * @param bitmap
-	 * @return
+	 * @return Kết quả đặt bitmap làm hình nền true - false
 	 */
 	public boolean setWallpaperByBitmap(Bitmap bitmap) {
 		try {
@@ -84,8 +91,8 @@ public class Utilities {
 	}
 
 	/**
-	 * @param bitmap
-	 * @param fileName
+	 * @param bitmap File cần lưu vào sdcard
+	 * @param fileName string tên file
 	 * @return
 	 */
 	public boolean saveBitmapToSDCard(Bitmap bitmap, String fileName) {
@@ -117,7 +124,7 @@ public class Utilities {
 	}
 
 	/**
-	 * @return
+	 * @return true - Thiết bị có kết nối internet
 	 */
 	public boolean isConnectingToInternet() {
 		ConnectivityManager cManager = (ConnectivityManager) context
@@ -188,6 +195,33 @@ public class Utilities {
 		Log.d("", "Fullscreen image new dimensions: w = " + new_width
 				+ ", h = " + sHeight);
 		img.setLayoutParams(params);
+	}
+	
+	/** Đặt phương thức làm việc với mạng trong tiến trình con
+	 * @param url
+	 * @return Bitmap
+	 */
+	public Bitmap getBitmapFromUrl(String stringUrl){
+		Bitmap bitmap = null;
+		URL url;
+		try{
+			url = new URL(stringUrl);
+			URLConnection connection = url.openConnection();
+			HttpURLConnection urlConnection = (HttpURLConnection) connection;
+			int responseCode = urlConnection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK){
+				InputStream inputStream = urlConnection.getInputStream();
+				bitmap = BitmapFactory.decodeStream(inputStream,null,null);	
+			}
+			if(bitmap != null){
+				return bitmap;
+			}
+		}catch(MalformedURLException e){
+			e.printStackTrace();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		return bitmap;
 	}
 
 	/**

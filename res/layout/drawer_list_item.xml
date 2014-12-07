@@ -24,6 +24,8 @@
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:textColor="@color/list_item_title"
         android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:text="This is title"
         android:paddingRight="40dp"/>
     
     <TextView android:id="@+id/counter"

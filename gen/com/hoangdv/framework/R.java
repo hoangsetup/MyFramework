@@ -70,11 +70,6 @@ public final class R {
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060001;
-        public static final int keep_me_logged_in=0x7f060006;
-        public static final int link_to_registry=0x7f060007;
-        public static final int login=0x7f060003;
-        public static final int password=0x7f060005;
-        public static final int username=0x7f060004;
     }
     public static final class style {
         /** 
