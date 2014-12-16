@@ -96,6 +96,8 @@ public class Utilities {
 	 * @return
 	 */
 	public boolean saveBitmapToSDCard(Bitmap bitmap, String fileName) {
+		if(bitmap == null)
+			return false;
 		File myDir = new File(
 				Environment
 						.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
@@ -222,7 +224,7 @@ public class Utilities {
 			e.printStackTrace();
 		}
 		return bitmap;
-	}
+	}	
 
 	/**
 	 * @return Checking Camera Availability
